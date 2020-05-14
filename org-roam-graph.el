@@ -198,7 +198,7 @@ into a digraph."
                                   (_ title)))
                (node-properties
                 `(("label"   . ,(s-replace "\"" "\\\"" shortened-title))
-                  ("URL"     . ,(concat "org-protocol://roam-file?file=" (url-hexify-string file)))
+                  ("URL"     . ,(funcall org-roam-graph-node-url-builder file))
                   ("tooltip" . ,(xml-escape-string title)))))
           (insert
            (format "  \"%s\" [%s];\n" file
